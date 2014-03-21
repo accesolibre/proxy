@@ -1,134 +1,227 @@
+<!-- 
+Tema personalizado para el Node Unblocker de Acceso Libre
+Este es el index.html en public/
+Meter accesolibrelogo.png en public/ 
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Acceso Libre Venezuela :: Proxy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset='utf-8'
   <!-- header font -->
-  <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-  
-  <!-- body font -->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   
   <style type="text/css">
-  
-    /* fonts */
-    body { font-family: 'Droid Sans', arial, serif;  letter-spacing: 1px;}
-    h1 { font-family: 'Orbitron', arial, serif; letter-spacing: 2px;}
-    h2, h3, h4, h5, h6 { letter-spacing: 2px; font-weight: normal;}
-  
-    /* colors */
-    body { background-color: #000306; color: white;}
-    .container { background-color: #3F4038; border-color: #5B3E38}
-    a { color: #62BECB; }
-    a:hover {color: #82DEEB }
+    body {
+      margin: 0;
+      background: white;
+      font-family: "Lato", Helvetica, Arial, sans-serif; 
+      font-size: 22px;
+      line-height: 1.46428571;
+      color: white;
 
-	#error {  border:1px dotted white; background: brown; }
-    
-    /* stripes and borders */
-    
-    .main { background-repeat: repeat-x;  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAB9CAIAAADbWVFQAAADd0lEQVR4nO3d6VbbMBiE4Tcm3Tf2tRfSf+393wd03/dCk/6AgjF2otiSvpGsuYBY52HO4JPEMHn+4hl6eTqzPkFbptYHaMnRjLn1GW7muKKyPkMzR5KdOq4AMSxlKaSwxKXQ2axDyZ06ud4liWYdSnbq5IaNPVYqUphjJSSF7WYdSO7Uy+7+mDXrQLJTC6SwwkpRChOsRKWIj5WuFJEHfl9y0V85FyZes/YlO+UuRTSsDKSIg5WHFBE2a09yp173KknYZu1JdqqfFEGxMpMiHFZ+UgTCylKKEAO/K7nob3y0wnOzdiU75UUKv1h5S+ERK3spfG3WjuROvfX928vD6+1Idsq7FMOxxiPFQKxRSTEEa2xS9B74bclFfxf4Dac+L78t2anQUvTAGq0Uq2KNWYqVNmtLcqfeR/wwz/VSW5KdiimFI1aROs/yCxapyyy5ZpGqZ9HAb0ou+ge77991XnlTslOGUnRhFanWtFy/SHWluVkbkjv1UUCKRrM2JDslIkUdq0gtzcVZipRLKoqUc6brkov+SU8K88dRWqMptT7Tw5KVQq1ZylLAVGewPktKPaltusoBZaXqkThjElIoYKUihTlWQlLYDvwXSanH3XfpZueVlVoQmyOnKIUJVqJSwHQ+CX+QWr7GvZxjHs1xcYj6U5aVckw8rNSliIaVgRRx7rO+SUo9nK/8rmfwZslK9UhYrJykCIqVmRThsPKTItDAf5eUerD6ojfiv1myUsPjGStjKfxi5S2Fx836ISl1f/BO1eOnWbJSfuMBayRSDMcajxQDsUYlxZCB/ykpdc/rojfSs1myUkHTB2ucUvTAGq0Uq27WL0mpuyF3qp4VmiUrFS2uWEUKR6widZ7lWEXqMksG/rek1J1Yi97IombJSlmlE6tI3Uw7VpFqTctm/ZGUum20U/U0myUrpZBrWEVqca6witTSXGAVKZdM53AqKXVLYNEbqWSlBKP4NWtNqdOJHpasFDr/OfM8U72dAs7+L5VQs4Qeqq3lrLbpKlj6UohgJSGFAlYqUpgP/Jrkov/tuPe0bNaaoFO3FIZYyUlhhZWiFCabVUnu1Ezt4UygEnRykyIyVtJSxMRKXYpoWBlIEWfgJ5KL3uPPDgRv1kTQqZcUobFykiIoVmZSBNwsyZ1i2KczYZql6DRUiiBYmUrhHytfKeAfdPYd7TpexlgAAAAASUVORK5CYII=); }
-    .footer { min-height: 60px; background-repeat: repeat-x; background-position: bottom left; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA8CAIAAAAfXYiZAAAB+ElEQVR4nO3b11aDQBSF4T2IXWM3lhfxTt//PWKvsTfwIllLEobQZuZsYM4DyFkffyKBRJ2encBPsQmlF9BNHEtvoBul+LBiAEp6idQogK0sRdlUrMYnjwhLUTYVJzZiwQoom4rUxMmjwAoom4pSG8ljzTEmhV/duQucrzExDZKCbFkhpdRP9vuBWFmNk4JUWfOUUt95/2MEymqoFNyXtUAp9VXsusVpWY2WgsuyFimlPstcCzsqqwVScIPVDik4eBkuUUp9VPokaresNknBalnLlFLvNe5u2CqrfVKwVNYKpdRb7Ttm5stqqxSMl7VKKfVq6C6sybLaLQWDZa1RSr0YvbNvpqwuSMFIWeuUUs8WnhbVLas7UqhZVo9SamjtCWR1rF5kcA1jM7T5Ybfi3+6gFKqVtUEp9WT/1lzpI3RWCmXL2qSUenT11KXEcTouheJlbVFKPbh9RlzoaF5qNPllbVNK3Ut8oyXnmF4qObPK2qGUupP7/l3mkb1UevRl7VJK3Qp/p1NXlpfKmumy9iilbgikMFWWl5o9/4t4qdwZvwz3KaWumaQwKstLFZywTyl1xScF8Z+jaIdTqh8hZPsx1iWl1EEEsJXFLAUwlXVBKXWYeE9nWZBfCiRlnVNKHaWuE+TXbIoUxMsaUEodZ1x7Si7bLCkAf1M7eHbSdYGuAAAAAElFTkSuQmCC); }
-    .container { border-style: solid; border-width: 1px; border-radius: 10px;  -moz-border-radius: 10px;  -webkit-border-radius: 10px;  overflow:hidden;  /* otherwise the background image appears on top of the curved border */ }
-    
-    
-    /* layout */
-    body { text-align: center; }
-    .container { width: 760px; margin: 40px auto; text-align: left;  max-width: calc(100% - 10px);}
-    
-    h2, h3, h4, h5, h6 { margin-bottom: 0;  }
-    ul { line-height: 150%; }
-    ul, p {  margin-top: 5px; margin-bottom: 0; }
-    .main, .footer { padding: 1px 10px 0 10px; }
-    
-    #error {display: none; padding: 5px 10px; margin: 30px 10px; }
-    
-    form ul { list-style-type: none; padding-left: 25px;}
-    input[type=text] { width: 640px; max-width: calc(100% - 8em) }
-    
-    .footer { position: relative; clear: both;}
-    .footer p { margin:0; position: absolute; bottom: 10px;  right: 10px; padding-left: 10px; }
-    
-    #google-ad {
-        text-align: center;
-        margin: 10px auto;
     }
-    @media(min-width: 768px) {
-        #google-ad {
-            margin: 0;
-            float:right; 
-            margin:34px 2px 2px 20px;
+
+    h1 {
+      color:white;
+      font-family: "Lato", Arial, sans-serif;
+      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 32px;
+      margin: 35px 0 40px 0;    
+    }
+
+    a {
+      color: #2c3e50;
+    }
+    
+    a:hover {
+      color: #2c3e50;
+    }
+
+    header {
+      background: white;
+      text-align: center;
+      padding: 30px 0 30px 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .container {
+      margin: 0 auto;
+      background: #272727;
+      width: 700px;
+    }
+
+    .main {
+      margin: 0 auto;
+      color: white;
+      padding: 1px 40px 15px 40px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    input[type=text] { 
+      width: 450px;
+      height: 20px;
+      border:none;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .button {
+      border: none;
+      background: #D00000;
+      height: 31px;
+      width: 50px;
+      color: #ffffff;
+      text-align: center;
+      padding: 3px 0 0 0;
+    }
+
+    #error { 
+      border:1px dotted white; 
+      background: brown; 
+      display: none; 
+      padding: 5px 10px; 
+      margin: 30px 10px; 
+    }   
+
+    .explicacion {
+      min-height: 60px; 
+      padding: 0 0 30px 0;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .explicacion p {
+      margin:0; 
+      position: relative;  
+      padding: 0 0 10px 0px; 
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .explicacion a {
+      color: white;
+    }
+
+    .footer {
+      background: white;
+      width: 100%;
+      text-align: center;
+      font-size:14px; 
+      padding: 5px 20px 0 0;
+      color: black;
+    }
+
+    @media(max-width: 700px) {
+      h1 {
+        font-size: 24px;
+      }
+
+
+      .container {
+        width: 90%;
+      }
+      input[type=text] { 
+        width: 80%;
+      }
+         .button {
+          display: block;
+          margin: 5px auto 0 auto;
+      height: 31px;
+      width: 50px;
+    }
+        .explicacion {
+          min-height: 60px; 
+          padding: 0 0 30px 0;
+          width: 80%;
+          margin: 0 auto;
         }
-    }
-  </style>
-</head>
-<body>
+        .footer {
+          padding: 10px 20px 10px 0;
+        }
 
-  <div class="container">
-  
-    <div class="main">
-  
-      <h1>Proxy Anticensura Venezuela</h1>
-      
-      <div id="error"></div>
+      }
+    </style>
+  </head>
 
-      <form action="/proxy/no-js" method="get" id="unblocker-form">
-        <p>
-          URL: 
-          <input type="text" id="url" name="url" autofocus="autofocus" />
-          <input type="submit" value="Go" />
-        </p>
+  <body>
+ 
+    <div class="container">
+      <header>      
+        <img src="accesolibrelogo.png" />
+      </header>
 
-      </form>
-      
-</div>
-      <h3>Proxy para saltar censura, simplemente coloca la dirección completa en la barra y dale Go.</h3>
-      <p>Si no entraste mediante https a este sitio, por favor, hazlo.</p>
-    </div>
-    
-    <div class="footer">
-      <p>Basado en <a href="http://nodeunblocker.com/proxy">Node Unblocker</a> de <a href="http://nfriedly.com/" title="Node.js developer and JavaScript Expert">Nathan Friedly</a></p>
-    </div>
-  
-  </div>
-	<script>
-		function $(id){
-			return document.getElementById(id);
-		}
-		
-		var l = window.location
-		
-		var baseUrl = l.hostname == "nodeunblocker.com" ?
-		     "https://node-unblocker.herokuapp.com/proxy/" : 
-		     l.protocol + '//' +  l.host + '/proxy/';
-		
-		$('unblocker-form').onsubmit = function(){
-			var url = $('url').value;
-			if(url.substr(0,4) != "http"){
-				url = "http://" + url;
-			}
-			window.location = baseUrl + url;
-			return false;
-		}
-		
-		function checkError(){
-			var search = window.location.search;
-			var start = search.indexOf('error=');
-			if(start > -1){
-				var stop = search.indexOf('&', start);
-				if(stop == -1){ stop = undefined; }
+      <div class="main">
+        <h1>Proxy Anticensura Venezuela</h1>
+
+        <div id="error"></div>
+
+        <form action="/proxy/no-js" method="get" id="unblocker-form">
+          <p>
+            <input type="text" id="url" name="url" placeholder="URL" autofocus="autofocus" />
+            <input type="submit" class="button" value="Go" />
+          </p>
+
+        </form>
+
+      </div>
+
+      <div class="explicacion">
+        <p>Proxy para saltar censura. Simplemente coloca la dirección de la página que quieres visitar la barra.</p>
+        <p>Si no entraste mediante https a este sitio, por favor, <a href="http2://al-proxy.herokuapp.com/proxy"> hazlo.</a></p>
+
+      </div>
+      <div class="footer"> 
+        <p><span class="peq">El código fuente de Node Unblocker está <a href="https://github.com/nfriedly/node-unblocker">disponible en Github.</a> | 
+          <a href="http://nodeunblocker.com/proxy">Node Unblocker</a> v{version} by <a href="http://nfriedly.com/" title="Node.js developer and JavaScript Expert">Nathan Friedly</a></span></p>
+        </div>
+
+      </div>
+
+      <script>
+        function $(id){
+         return document.getElementById(id);
+       }
+
+       var l = window.location
+
+       var baseUrl = l.hostname == "nodeunblocker.com" ?
+       "https://node-unblocker.herokuapp.com/proxy/" : 
+       l.protocol + '//' +  l.host + '/proxy/';
+
+       $('unblocker-form').onsubmit = function(){
+         var url = $('url').value;
+         if(url.substr(0,4) != "http"){
+          url = "http://" + url;
+        }
+        window.location = baseUrl + url;
+        return false;
+      }
+
+      function checkError(){
+       var search = window.location.search;
+       var start = search.indexOf('error=');
+       if(start > -1){
+        var stop = search.indexOf('&', start);
+        if(stop == -1){ stop = undefined; }
 				// +6 for "error="
 				var err = search.substr(start+6, stop);
 				$('error').innerText = $('error').textContent = decodeURIComponent(err);
 				$('error').style.display = "block";
 			}
 		}
-    
+
 		window.onload = function() { 
 			$('url').focus(); 
 			checkError(); 
 		}
 	</script>
-  
-  
+
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>
